@@ -1,0 +1,32 @@
+
+class Animal:
+    def make_sound(self):
+        pass
+
+
+class Dog(Animal):
+    def make_sound(self):
+        print("Awh Awh!!")
+
+class Cat(Animal):
+    def make_sound(self):
+        print("Meow Meow!!")
+
+
+class AnimalFactory:
+    def create_animal(self, animal_type):
+        if animal_type == "Dog":
+            return Dog()
+        elif animal_type == "Cat":
+            return Cat()
+        else:
+            raise ValueError(f"Invalid animal type: {animal_type}")
+
+
+factory = AnimalFactory()
+
+dog = factory.create_animal("Dog")
+dog.make_sound()
+
+cat = factory.create_animal("Cat")
+cat.make_sound()
